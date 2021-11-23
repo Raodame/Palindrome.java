@@ -5,7 +5,12 @@ public class Palindrome {
     public static void main(String[] args) {
         String forward = getInput();
         String forwardChecked = removeCharacters(forward);
-
+        String reversed = reverse(forwardChecked);
+        Boolean compare = determineIfPalindrome(forwardChecked, reversed);
+        if (compare == true)
+            System.out.println("Ignoring spaces, capitalization, and punctuation, \"" + forward + "\" IS a palindrome.");
+        else
+            System.out.println("Ignoring spaces, capitalization, and punctuation, \"" + forward + "\" IS NOT a palindrome.");
     }
 
     public static String getInput(){
@@ -13,29 +18,128 @@ public class Palindrome {
     }
 
     public static String removeCharacters(String input){
-        String y;
-        String newString = "";
+        String newString1 = "";
+
         if(input.indexOf(" ") != -1){
             for(int x = 0; x < input.length(); x++) {
                 String currentCharacter = input.substring(x, x + 1);
                 if (!currentCharacter.equals(" "))
-                    newString += currentCharacter;
+                    newString1 += currentCharacter;
             }
-            y = newString;
+            input = newString1;
         }
-        else
-            y = input;
 
-        String punctuation = "!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~";
-        if(y.indexOf(punctuation) != -1) {
-            for (int x = 0; x < y.length(); x++) {
-                String currentCharacter = y.substring(x, x + 1);
-                if (!currentCharacter.equals(punctuation))
-                    newString += currentCharacter;
+        String newString2 = "";
+        if(input.indexOf("!") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals("!"))
+                    newString2 += currentCharacter;
             }
-            y = newString;
+            input = newString2;
         }
-        return y;
+
+        String newString3 = "";
+        if(input.indexOf(".") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals("."))
+                    newString3 += currentCharacter;
+            }
+            input = newString3;
+        }
+
+        String newString4 = "";
+        if(input.indexOf(",") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals(","))
+                    newString4 += currentCharacter;
+            }
+            input = newString4;
+        }
+
+        String newString5 = "";
+        if(input.indexOf(":") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals(":"))
+                    newString5 += currentCharacter;
+            }
+            input = newString5;
+        }
+
+        String newString6 = "";
+        if(input.indexOf(";") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals(";"))
+                    newString6 += currentCharacter;
+            }
+            input = newString2;
+        }
+
+        String newString7 = "";
+        if(input.indexOf("?") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals("?"))
+                    newString7 += currentCharacter;
+            }
+            input = newString7;
+        }
+
+        String newString8 = "";
+        if(input.indexOf("(") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals("("))
+                    newString8 += currentCharacter;
+            }
+            input = newString8;
+        }
+
+        String newString9 = "";
+        if(input.indexOf(")") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals(")"))
+                    newString9 += currentCharacter;
+            }
+            input = newString9;
+        }
+
+        String newString10 = "";
+        if(input.indexOf("'") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals("'"))
+                    newString10 += currentCharacter;
+            }
+            input = newString10;
+        }
+
+        String newString11 = "";
+        if(input.indexOf("-") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals("-"))
+                    newString11 += currentCharacter;
+            }
+            input = newString11;
+        }
+
+        String newString12 = "";
+        if(input.indexOf("\"") != -1){
+            for(int x = 0; x < input.length(); x++) {
+                String currentCharacter = input.substring(x, x + 1);
+                if (!currentCharacter.equals("\""))
+                    newString12 += currentCharacter;
+            }
+            input = newString12;
+        }
+
+        return input;
     }
 
     public static String reverse(String notReversed){
@@ -47,8 +151,10 @@ public class Palindrome {
         return reverseInput;
     }
 
-//    public static boolean determineIfPalindrome(String notReversed, String reversed){
-////        String x = "Hello";
-////        x.toLowerCase(Locale.ROOT);
-//    }
+    public static boolean determineIfPalindrome(String notReversed, String reversed){
+        if (notReversed.equalsIgnoreCase(reversed))
+            return true;
+        else
+            return false;
+    }
 }
